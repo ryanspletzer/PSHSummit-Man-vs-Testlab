@@ -1,9 +1,9 @@
 ﻿
 Push-Location '~\OneDrive\Documents\PSHSummit\Man vs Test Lab'
-Import-Module VirtualEngineLab -Force
-Get-Command -Module VirtualEngineLab
+Import-Module Lability -Force
+Get-Command -Module Lability
 Get-LabHostDefaults
-Set-LabHostDefaults -ConfigurationPath D:\TestLab\Configurations -DifferencingVhdPath 'D:\TestLab\VM Disks' -HotfixPath D:\TestLab\Hotfixes -IsoPath D:\TestLab\ISOs -ParentVhdPath 'D:\TestLab\Parent Disks' -ResourcePath D:\TestLab\Resources;
+Set-LabHostDefaults -ConfigurationPath D:\TestLab\Configurations -DifferencingVhdPath 'D:\TestLab\VM Disks' -HotfixPath D:\TestLab\Hotfixes -IsoPath D:\TestLab\ISOs -ParentVhdPath 'D:\TestLab\Parent Disks' -ResourcePath D:\TestLab\Resources
 
 <#
     Test host configuration and start configuration if necessary (Start-LabConfiguration calls Test-LabConfiguration anyway!) #>
@@ -18,7 +18,7 @@ TLGBaseConfiguration -OutputPath D:\TestLab\Configurations -ConfigurationData .\
 <#
     Set the lab VM defaults, create the lab and start the VMs #>
 Get-LabVMDefaults
-Set-LabVMDefaults -SystemLocale en-GB -InputLocale 0809:00000809 -UserLocale en-GB -RegisteredOrganization 'Virtual Engine' -StartupMemory 1.5GB
+Set-LabVMDefaults -SystemLocale en-US -InputLocale 0409:00000409 -UserLocale en-US -RegisteredOrganization 'Virtual Engine' -StartupMemory 1.5GB
 Start-LabConfiguration -ConfigurationData .\TLGVirtualEngineLab.psd1 -Path D:\TestLab\Configurations -Verbose;
 
 ## ADD ADDITIONAL NIC
