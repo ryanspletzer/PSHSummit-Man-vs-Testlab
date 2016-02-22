@@ -15,9 +15,14 @@ Configuration TLGBaseConfiguration {
         xIPAddress 'IPAddress_Primary' {
             IPAddress      = $node.IPAddress;
             InterfaceAlias = $node.InterfaceAlias;
-            DefaultGateway = $node.DefaultGateway;
             SubnetMask     = $node.SubnetMask;
-            AddressFamily  = $node.AddressFamily;
+            AddressFamily  = $node.AddressFamily
+        }
+
+        xDefaultGatewayAddress 'DefaultGatewayAddress_Primary' {
+            Address        = $node.DefaultGateway
+            AddressFamily  = $node.AddressFamily
+            InterfaceAlias = $node.InterfaceAlias
         }
 
         xDnsServerAddress 'DNSClient_Primary' {
@@ -31,9 +36,14 @@ Configuration TLGBaseConfiguration {
         xIPAddress 'IPAddress_Secondary' {
             IPAddress      = $node.IPAddress2;
             InterfaceAlias = $node.InterfaceAlias2;
-            DefaultGateway = $node.DefaultGateway2;
             SubnetMask     = $node.SubnetMask2;
             AddressFamily  = $node.AddressFamily2;
+        }
+
+        xDefaultGatewayAddress 'DefaultGatewayAddress_Secondary' {
+            Address        = $node.DefaultGateway2
+            AddressFamily  = $node.AddressFamily
+            InterfaceAlias = $node.InterfaceAlias2
         }
 
         xDnsServerAddress 'DNSClient_Secondary' {
@@ -54,11 +64,11 @@ Configuration TLGBaseConfiguration {
         xFirewall 'Firewall_FPS-ICMP4-ERQ-In' {
             Name = 'FPS-ICMP4-ERQ-In';
             DisplayName = 'File and Printer Sharing (Echo Request - ICMPv4-In)';
-            DisplayGroup = 'File and Printer Sharing';
+            Group = 'File and Printer Sharing';
             Description = 'Echo request messages are sent as ping requests to other nodes.';
             Direction = 'Inbound';
-            Access = 'Allow';
-            State = 'Enabled';
+            Action = 'Allow';
+            Enabled = 'True';
             Profile = 'Any';
         }
     } #end nodes ALL

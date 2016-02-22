@@ -18,8 +18,8 @@ TLGBaseConfiguration -OutputPath D:\TestLab\Configurations -ConfigurationData .\
 <#
     Set the lab VM defaults, create the lab and start the VMs #>
 Get-LabVMDefaults
-Set-LabVMDefaults -SystemLocale en-US -InputLocale 0409:00000409 -UserLocale en-US -RegisteredOrganization 'Virtual Engine' -StartupMemory 1.5GB
-Start-LabConfiguration -ConfigurationData .\TLGVirtualEngineLab.psd1 -Path D:\TestLab\Configurations -Verbose;
+Set-LabVMDefaults -SystemLocale en-US -InputLocale 0409:00000409 -UserLocale en-US -RegisteredOrganization 'Contoso' -StartupMemory 1.5GB
+Start-LabConfiguration -ConfigurationData .\TLGVirtualEngineLab.psd1 -Path D:\TestLab\Configurations -Verbose
 
 ## ADD ADDITIONAL NIC
 Add-VMNetworkAdapter -VMName EDGE1 -SwitchName Internet
@@ -42,6 +42,6 @@ Stop-Lab -ConfigurationData .\TLGVirtualEngineLab.psd1 -Verbose
 
 
 <# Reset lab #>
-Import-Module VirtualEngineLab -Force
-Remove-LabConfiguration -ConfigurationData ~\Documents\TLGVirtualEngineLab.psd1 -RemoveSwitch -Verbose
-Remove-Item -Path $env:ALLUSERSPROFILE\VirtualEngineLab -Force -Recurse
+Import-Module Lability -Force
+Remove-LabConfiguration -ConfigurationData .\TLGVirtualEngineLab.psd1 -RemoveSwitch -Verbose
+Remove-Item -Path $env:ALLUSERSPROFILE\Lability -Force -Recurse
