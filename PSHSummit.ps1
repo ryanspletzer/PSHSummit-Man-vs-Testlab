@@ -3,7 +3,7 @@ Push-Location '~\OneDrive\Documents\PSHSummit\Man vs Test Lab'
 Import-Module Lability -Force
 Get-Command -Module Lability
 Get-LabHostDefaults
-Set-LabHostDefaults -ConfigurationPath D:\TestLab\Configurations -UpdatePath D:\TestLab\Updates -DifferencingVhdPath 'D:\TestLab\VM Disks' -HotfixPath D:\TestLab\Hotfixes -IsoPath D:\TestLab\ISOs -ParentVhdPath 'C:\TestLab\Parent Disks' -ResourcePath D:\TestLab\Resources
+Set-LabHostDefaults -ConfigurationPath D:\TestLab\Configurations -DifferencingVhdPath 'D:\TestLab\VM Disks' -HotfixPath D:\TestLab\Hotfixes -IsoPath D:\TestLab\ISOs -ParentVhdPath 'C:\TestLab\Parent Disks' -ResourcePath D:\TestLab\Resources
 
 <#
     Test host configuration and start configuration if necessary (Start-LabConfiguration calls Test-LabConfiguration anyway!) #>
